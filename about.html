@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Resume of T. Wolfgang Schuster">
+    <meta name="keywords" content="HTML,CSS,Resume">
+    <meta name="author" content="Wolfgang Schuster">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Wolfgang Schuster - About</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <style>
+      * {
+        /* SHARED */
+        --size-project: 10rem;
+        --size-project-detailed: 20rem;
+        --color-primary: rgb(0, 255, 108);
+        --color-secondary: rgb(47, 223, 255);
+        --color-primary-transparent: rgba(0, 255, 108, 0.5);
+        --color-white: rgb(255, 255, 255);
+        --color-black: rgb(18, 18, 18);
+        --card-modal: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        --card-hover: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        --background-gradient: linear-gradient(to bottom right, var(--color-primary), var(--color-secondary));
+      }
+
+      /* GENERIC */
+
+      .card {
+        background-color: var(--color-white);
+        border-radius: 3px;
+        transition: box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .card-height-1 {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      }
+
+      .card-height-2 {
+        box-shadow: var(--card-hover);
+      }
+
+      .card-height-3 {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      }
+
+      .card-height-4 {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
+
+      .card-height-5 {
+        box-shadow: var(--card-modal);
+      }
+
+      .spacer {
+        flex: 1;
+      }
+
+      /* SEMI-SPECIFIC */
+
+      body {
+        background: #e2e1e0;
+        font-family: 'Lato', sans-serif;
+        margin: 1rem;
+        color: var(--color-black);
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        width: 6rem;
+        margin-top: 1rem;
+        margin-right: 1rem;
+      }
+
+      nav a {
+        margin-bottom: 0.5rem;
+        color: var(--color-black);
+      }
+
+
+      main {
+        display: flex;
+        border-top: 2px solid var(--color-black);
+      }
+
+      content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .name {
+        font-size: 2.2rem;
+      }
+
+      /* SMALL SCREEN OVERRIDES */
+
+      @media only screen and (min-width: 320px) and (max-width: 480px) {
+        main {
+          flex-direction: column;
+        }
+
+        nav {
+          font-size: 1.4rem;
+          border-bottom: 2px solid black;
+          width: 100%;
+          padding-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <span class="name">Wolfgang Schuster - About</span>
+
+    <main>
+
+      <nav>
+        <a href="/">Projects</a>
+        <!-- <a href="/work">Work</a> -->
+      </nav>
+
+      <content>
+        T. Wolfgang Schuster
+        <br />
+        Denver, CO
+        <br />
+        <br />
+        GitHub: <a href="https://github.com/wolfadex" target="window">wolfadex</a>
+        <br />
+        LinkedIn: <a href="https://www.linkedin.com/in/twolfgangschuster/" target="window">twolfgangschuster</a>
+      </content>
+    </main>
+  </body>
+</html>

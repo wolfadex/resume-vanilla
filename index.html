@@ -67,6 +67,25 @@
         color: var(--color-black);
       }
 
+      nav {
+        display: flex;
+        flex-direction: column;
+        width: 6rem;
+        margin-top: 1rem;
+        margin-right: 1rem;
+      }
+
+      nav a {
+        margin-bottom: 0.5rem;
+        color: var(--color-black);
+      }
+
+
+      main {
+        display: flex;
+        border-top: 2px solid var(--color-black);
+      }
+
       .name {
         font-size: 2.2rem;
       }
@@ -191,6 +210,17 @@
       /* SMALL SCREEN OVERRIDES */
 
       @media only screen and (min-width: 320px) and (max-width: 480px) {
+        main {
+          flex-direction: column;
+        }
+
+        nav {
+          font-size: 1.4rem;
+          border-bottom: 2px solid black;
+          width: 100%;
+          padding-bottom: 1rem;
+        }
+
         .projects {
           flex-direction: column;
         }
@@ -226,108 +256,117 @@
     </style>
   </head>
   <body>
-    <span class="name">Wolfgang Schuster</span>
+    <span class="name">Wolfgang Schuster - Projects</span>
 
-    <div class="projects">
-      <label class ="project">
-        <input type="radio" name="project">
-        <div class="project-placeholder"></div>
-        <div class="project__details card elm-text-adventure__image">
-          <div class="project__header dark-background">
-            <span class="project__title">
-              Elm Text Adventure
-            </span>
-            <label>
-              <input type="radio" name="project">
-              X
-            </label>
-          </div>
-          <div class="spacer"></div>
-          <div class="project__body">
-            A package for building text adventures in Elm. See more details <a href="https://github.com/wolfadex/elm-text-adventure" target="window">here</a>.
-          </div>
-        </div>
-      </label>
+    <main>
 
-      <label class="project">
-        <input type="radio" name="project">
-        <div class="project-placeholder"></div>
-        <div class="project__details card slime-buddy__image">
-          <div class="project__header dark-background">
-            <span class="project__title">
-              Slime Buddy
-            </span>
-            <label>
-              <input type="radio" name="project">
-              X
-            </label>
-          </div>
-          <div class="spacer"></div>
-          <div class="project__body">
-            A simulation game where you take care of a Slime. Originally written in JavaScript and then rewritten in Elm. See the code <a href="https://github.com/wolfadex/slime-buddy" target="window">here</a> or <a href="https://hungry-rosalind-a14be2.netlify.com/" target="window">play</a> it!
-          </div>
-        </div>
-      </label>
+      <nav>
+        <!-- <a href="/work">Work</a> -->
+        <a href="/about">About</a>
+      </nav>
 
-      <label class="project">
-        <input type="radio" name="project">
-        <div class="project-placeholder"></div>
-        <div class="project__details card">
-          <div class="project__header">
-            <span class="project__title">
-              Tahi
-            </span>
-            <label>
-              <input type="radio" name="project">
-              X
-            </label>
+      <content class="projects">
+        <label class ="project">
+          <input type="radio" name="project">
+          <div class="project-placeholder"></div>
+          <div class="project__details card elm-text-adventure__image">
+            <div class="project__header dark-background">
+              <span class="project__title">
+                Elm Text Adventure
+              </span>
+              <label>
+                <input type="radio" name="project">
+                X
+              </label>
+            </div>
+            <div class="spacer"></div>
+            <div class="project__body">
+              A package for building text adventures in Elm. See more details <a href="https://github.com/wolfadex/elm-text-adventure" target="window">here</a>.
+            </div>
           </div>
-          <div class="spacer"></div>
-          <div class="project__body">
-            Proof of concept <a href="https://redux.js.org/" target="window">Redux</a> like state mangagement combined with <a href="https://webrtc.org/" target="window">WebRTC</a>, to create a shared and synchronous state across multiple devices. Code is located <a href="https://github.com/wolfadex/tahi" target="window">here</a>. <a href="http://tahi-chat.surge.sh/" target="window"]>Chat</a> demo written in vanilla JS and a <a href="https://github.com/wolfadex/tahi/tree/master/examples/tic-tac-toe" target="window">Tic-Tac-Toe</a> demo that uses React.
-          </div>
-        </div>
-      </label>
+        </label>
 
-      <label class="project">
-        <input type="radio" name="project">
-        <div class="project-placeholder"></div>
-        <div class="project__details card">
-          <div class="project__header">
-            <span class="project__title">
-              Descent
-            </span>
-            <label>
-              <input type="radio" name="project">
-              X
-            </label>
+        <label class="project">
+          <input type="radio" name="project">
+          <div class="project-placeholder"></div>
+          <div class="project__details card slime-buddy__image">
+            <div class="project__header dark-background">
+              <span class="project__title">
+                Slime Buddy
+              </span>
+              <label>
+                <input type="radio" name="project">
+                X
+              </label>
+            </div>
+            <div class="spacer"></div>
+            <div class="project__body">
+              A simulation game where you take care of a Slime. Originally written in JavaScript and then rewritten in Elm. See the code <a href="https://github.com/wolfadex/slime-buddy" target="window">here</a> or <a href="https://hungry-rosalind-a14be2.netlify.com/" target="window">play</a> it!
+            </div>
           </div>
-          <div class="spacer"></div>
-          <div class="project__body">
-            Uses <a href="https://github.com/chr15m/bugout" target="window">Bugout</a>, a decentralized framework, to create a semi-anonymous chat app. Written in Elm, with TypeScript to proxy between Elm and the Bugout library.
-          </div>
-        </div>
-      </label>
+        </label>
 
-      <label class="project">
-        <input type="radio" name="project">
-        <div class="project-placeholder"></div>
-        <div class="project__details card">
-          <div class="project__header">
-            <span class="project__title">
-              Tic-Tac-Toe
-            </span>
-            <label>
-              <input type="radio" name="project">
-              X
-            </label>
+        <label class="project">
+          <input type="radio" name="project">
+          <div class="project-placeholder"></div>
+          <div class="project__details card">
+            <div class="project__header">
+              <span class="project__title">
+                Tahi
+              </span>
+              <label>
+                <input type="radio" name="project">
+                X
+              </label>
+            </div>
+            <div class="spacer"></div>
+            <div class="project__body">
+              Proof of concept <a href="https://redux.js.org/" target="window">Redux</a> like state mangagement combined with <a href="https://webrtc.org/" target="window">WebRTC</a>, to create a shared and synchronous state across multiple devices. Code is located <a href="https://github.com/wolfadex/tahi" target="window">here</a>. <a href="http://tahi-chat.surge.sh/" target="window"]>Chat</a> demo written in vanilla JS and a <a href="https://github.com/wolfadex/tahi/tree/master/examples/tic-tac-toe" target="window">Tic-Tac-Toe</a> demo that uses React.
+            </div>
           </div>
-          <div class="spacer"></div>
-          <div class="project__body">
-            Straight forward Tic-Tac-Toe built on top of <a href="https://github.com/chr15m/bugout" target="window">Bugout</a>, a decentralized framework.
+        </label>
+
+        <label class="project">
+          <input type="radio" name="project">
+          <div class="project-placeholder"></div>
+          <div class="project__details card">
+            <div class="project__header">
+              <span class="project__title">
+                Descent
+              </span>
+              <label>
+                <input type="radio" name="project">
+                X
+              </label>
+            </div>
+            <div class="spacer"></div>
+            <div class="project__body">
+              Uses <a href="https://github.com/chr15m/bugout" target="window">Bugout</a>, a decentralized framework, to create a semi-anonymous chat app. Written in Elm, with TypeScript to proxy between Elm and the Bugout library.
+            </div>
           </div>
-        </div>
-      </label>
-    </div>
+        </label>
+
+        <label class="project">
+          <input type="radio" name="project">
+          <div class="project-placeholder"></div>
+          <div class="project__details card">
+            <div class="project__header">
+              <span class="project__title">
+                Tic-Tac-Toe
+              </span>
+              <label>
+                <input type="radio" name="project">
+                X
+              </label>
+            </div>
+            <div class="spacer"></div>
+            <div class="project__body">
+              Straight forward Tic-Tac-Toe built on top of <a href="https://github.com/chr15m/bugout" target="window">Bugout</a>, a decentralized framework.
+            </div>
+          </div>
+        </label>
+      </content>
+
+    </main>
   </body>
 </html>
