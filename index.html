@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Resume of T. Wolfgang Schuster">
+    <meta name="keywords" content="HTML,CSS,Resume">
+    <meta name="author" content="Wolfgang Schuster">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Wolfgang Schuster - Projects</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+    <style>
+      * {
+        /* SHARED */
+        --size-project: 10rem;
+        --size-project-detailed: 20rem;
+        --color-primary: rgb(0, 255, 108);
+        --color-secondary: rgb(47, 223, 255);
+        --color-primary-transparent: rgba(0, 255, 108, 0.5);
+        --color-white: rgb(255, 255, 255);
+        --color-black: rgb(18, 18, 18);
+        --card-modal: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        --card-hover: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        --background-gradient: linear-gradient(to bottom right, var(--color-primary), var(--color-secondary));
+      }
+
+      /* GENERIC */
+
+      .card {
+        background-color: var(--color-white);
+        border-radius: 3px;
+        transition: box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .card-height-1 {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      }
+
+      .card-height-2 {
+        box-shadow: var(--card-hover);
+      }
+
+      .card-height-3 {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      }
+
+      .card-height-4 {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
+
+      .card-height-5 {
+        box-shadow: var(--card-modal);
+      }
+
+      .spacer {
+        flex: 1;
+      }
+
+      /* SEMI-SPECIFIC */
+
+      body {
+        background: #e2e1e0;
+        font-family: 'Lato', sans-serif;
+        margin: 1rem;
+        color: var(--color-black);
+      }
+
+      .name {
+        font-size: 2.2rem;
+      }
+
+      .projects {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .projects > label {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .project__details {
+        cursor: pointer;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        background-image: var(--background-gradient);
+      }
+
+      .project > .project__details {
+        width: var(--size-project);
+        height: var(--size-project);
+      }
+
+      .project > .project__details:hover {
+        box-shadow: var(--card-hover);
+      }
+
+      .project > input[type=radio] {
+        display: none;
+      }
+
+      .project > input[type=radio]:checked ~ .project__details {
+        cursor: inherit;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-property: height, width;
+        width: var(--size-project-detailed);
+        height: var(--size-project-detailed);
+      }
+
+      .project > input[type=radio] ~ .project__details > .project__header > label {
+        display: none;
+      }
+
+      .project > input[type=radio]:checked ~ .project__details > .project__header > label {
+        display: block;
+        cursor: pointer;
+      }
+
+      .project > input[type=radio]:checked ~ .project__details > .project__body {
+        display: block;
+      }
+
+      .project > input[type=radio] ~ .project__details > .project__header > label > input {
+        display: none;
+      }
+
+      .project > input[type=radio]:checked ~ .project-placeholder {
+        width: var(--size-project);
+        height: var(--size-project);
+      }
+
+      .project__header {
+        display: flex;
+        overflow: hidden;
+        margin: 0.5rem;
+      }
+
+      .project__header.dark-background {
+        color: var(--color-white);
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5)
+      }
+
+      .project__header.light-background {
+        color: var(--color-black);
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 3px 3px rgba(255, 255, 255, 0.5)
+      }
+
+      .project__title {
+        flex: 1;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .project__body {
+        background-color: var(--color-white);
+        padding: 0.5rem;
+      }
+
+      .project__details .project__body {
+        display: none;
+        overflow-y: scroll;
+      }
+
+      /* SPECIFIC */
+
+      /* Elm Text Adventure */
+
+      .elm-text-adventure__image {
+        background-image: url(https://raw.githubusercontent.com/wolfadex/elm-text-adventure/master/elm-text-adventure_example.png), var(--background-gradient);
+      }
+
+      /* Slime Buddy */
+
+      .slime-buddy__image {
+        background-image: url(https://github.com/wolfadex/slime-buddy/raw/master/src/assets/SlimeBuddyScreenshot.png), var(--background-gradient);
+      }
+
+      /* SMALL SCREEN OVERRIDES */
+
+      @media only screen and (min-width: 320px) and (max-width: 480px) {
+        .projects {
+          flex-direction: column;
+        }
+
+        .projects .project {
+          margin-right: 0;
+        }
+
+        .project > .project__details {
+          width: 100%;
+          height: var(--size-project);
+        }
+
+        .project__header {
+          font-size: 1.5rem;
+        }
+
+        .project > input[type=radio]:checked ~ .project__details {
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          transform: translate(0, 0);
+          height: 100%;
+          width: 100%;
+        }
+
+        .project__body {
+          font-size: 1.3rem;
+          height: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <span class="name">Wolfgang Schuster</span>
+
+    <div class="projects">
+      <label class ="project">
+        <input type="radio" name="project">
+        <div class="project-placeholder"></div>
+        <div class="project__details card elm-text-adventure__image">
+          <div class="project__header dark-background">
+            <span class="project__title">
+              Elm Text Adventure
+            </span>
+            <label>
+              <input type="radio" name="project">
+              X
+            </label>
+          </div>
+          <div class="spacer"></div>
+          <div class="project__body">
+            A package for building text adventures in Elm. See more details <a href="https://github.com/wolfadex/elm-text-adventure" target="window">here</a>.
+          </div>
+        </div>
+      </label>
+
+      <label class="project">
+        <input type="radio" name="project">
+        <div class="project-placeholder"></div>
+        <div class="project__details card slime-buddy__image">
+          <div class="project__header dark-background">
+            <span class="project__title">
+              Slime Buddy
+            </span>
+            <label>
+              <input type="radio" name="project">
+              X
+            </label>
+          </div>
+          <div class="spacer"></div>
+          <div class="project__body">
+            A simulation game where you take care of a Slime. Originally written in JavaScript and then rewritten in Elm. See the code <a href="https://github.com/wolfadex/slime-buddy" target="window">here</a> or <a href="https://hungry-rosalind-a14be2.netlify.com/" target="window">play</a> it!
+          </div>
+        </div>
+      </label>
+
+      <label class="project">
+        <input type="radio" name="project">
+        <div class="project-placeholder"></div>
+        <div class="project__details card">
+          <div class="project__header">
+            <span class="project__title">
+              Tahi
+            </span>
+            <label>
+              <input type="radio" name="project">
+              X
+            </label>
+          </div>
+          <div class="spacer"></div>
+          <div class="project__body">
+            Proof of concept <a href="https://redux.js.org/" target="window">Redux</a> like state mangagement combined with <a href="https://webrtc.org/" target="window">WebRTC</a>, to create a shared and synchronous state across multiple devices. Code is located <a href="https://github.com/wolfadex/tahi" target="window">here</a>. <a href="http://tahi-chat.surge.sh/" target="window"]>Chat</a> demo written in vanilla JS and a <a href="https://github.com/wolfadex/tahi/tree/master/examples/tic-tac-toe" target="window">Tic-Tac-Toe</a> demo that uses React.
+          </div>
+        </div>
+      </label>
+
+      <label class="project">
+        <input type="radio" name="project">
+        <div class="project-placeholder"></div>
+        <div class="project__details card">
+          <div class="project__header">
+            <span class="project__title">
+              Descent
+            </span>
+            <label>
+              <input type="radio" name="project">
+              X
+            </label>
+          </div>
+          <div class="spacer"></div>
+          <div class="project__body">
+            Uses <a href="https://github.com/chr15m/bugout" target="window">Bugout</a>, a decentralized framework, to create a semi-anonymous chat app. Written in Elm, with TypeScript to proxy between Elm and the Bugout library.
+          </div>
+        </div>
+      </label>
+
+      <label class="project">
+        <input type="radio" name="project">
+        <div class="project-placeholder"></div>
+        <div class="project__details card">
+          <div class="project__header">
+            <span class="project__title">
+              Tic-Tac-Toe
+            </span>
+            <label>
+              <input type="radio" name="project">
+              X
+            </label>
+          </div>
+          <div class="spacer"></div>
+          <div class="project__body">
+            Straight forward Tic-Tac-Toe built on top of <a href="https://github.com/chr15m/bugout" target="window">Bugout</a>, a decentralized framework.
+          </div>
+        </div>
+      </label>
+    </div>
+  </body>
+</html>
